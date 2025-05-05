@@ -1,0 +1,223 @@
+0.0.0
+    Core game logic
+    
+0.1.0
+    Improvements
+        Recoded core game logic
+        Recoded bobble matching check
+        Recoded ceiling connection check
+        
+0.2.0
+    Additions
+        new command - "/framerate set <int>"
+        new command - "/debug <bool>"
+    Improvements
+        Bobbles can now slide through narrow gaps
+        General improvements
+    Bug Fixes
+        Fixed bobble spawning inside walls
+        Fixed duplicate bobble spawning
+        Fixed overlapping bobble spawning
+        Fixed laggy bobble collision detection
+        
+0.2.1
+    Bug Fixes
+        Fixed "/framerate set" command not working
+        
+0.3.0
+    Changes
+        Bobble tray is now hexagonal
+    Improvements
+        New visual for The Arrow
+        Graphic improvements
+
+0.4.0 20250226
+    Additions
+        Added level generator
+        Added winning and losing
+        Added result screen
+        Added ceiling drop - Bobble tray ceiling now drops after every few bobble attachments
+        Added bobble swap - functionality to swap bobbles on The Arrow
+    Improvements
+        Debug mode now shows bobble coordinates
+        General improvements
+    Bug Fixes
+        Fixed incorrect bobble matching behaviour when bobble tray moves
+        Fixed jittery bobble movement when game speed is set lower than 1
+        Fixed a bug that causes duplicate game systems to spawn upon restart
+        
+0.5.0 20250318
+    Additions
+        Added saving and loading - Press 'N' to save; Press 'M' to load
+    Improvements
+        Added shaking animation to indicate ceiling drop count down
+        Ceiling Drop is now animated
+        Bobble Popping is now animated
+        Script backend improvements
+    Bug Fixes
+        Fixed a bug that causes losing condition to trigger twice when a bobble is attached in the death zone at the same time the ceiling drops
+        Fixed a bug that allows player to fire and attach bobbles prematurely before previous game loop ends, causing unexpected behaviour
+        
+0.5.1 20250319
+    Additions
+        Added level painter
+        new command - "/ll <string>" - load level by name
+        [EDITOR]
+            new command - "/sla <string>" - save level by name
+    Bug Fixes
+        Fixed a bug that causes bobble tray to offset slightly after shaking has stopped
+        Fixed a bug that causes travelling bobble attachment to be slightly off when bobble tray is shaking
+
+0.6.0 20250321
+    Additions
+        Added Arcade Mode - 5 preset levels
+        Added Main Menu
+        Added Options Menu
+        Added Pause Menu
+    Bug Fixes
+        Fixed a bug that causes bobble spawning at or around world origin to fail in certain conditions
+        Fixed a bug that causes bobble tray to not update its position if a level is loaded while the tray is shaking
+  
+0.7.0 20250411
+    Additions
+        Added Level Selection Scene
+        Added 5 bobble colours - Amethyst; Aquamarine; Alexandrite; Onyx; Diamond
+        Added aim guide
+        [Level Painter]
+            Added paintable ceiling tiles
+            Added GUI to customize bobble tray behaviours
+            Added Camera Height control
+        [EDITOR]
+            new command - "/llp" - launch level painter
+    Improvements
+        [Gameplay]
+            New bobbles now spawn with random colours limited to colours currently in the level
+            Aiming angle is now clamped
+            Bobbles on the arrow are now animated
+        [General]
+            Scene transitions are now animated
+            Tweaked overall visual
+            Script backend improvements
+        [EDITOR]
+            "/sla" command now accepts a optional second argument as Display Name - "/sla <string> (optional)<string>"
+    Bug Fixes
+        Fixed a bug that causes a bobble to be shot when pressing the pause button
+        Fixed a bug that caused bobble tray to not shake after ceiling drop when ceiling drop interval is set to less than 2
+        Fixed a bug that causes travelling bobble to collide with background wall
+    Other
+        [Arcade Mode]
+            currently disabled
+            
+0.8.0 20250422
+    Additions
+        Added audio
+        Added touchscreen support
+        Added floating score texts when scoring
+        Added high score display
+        Added level unlocking
+        Added High Refresh Rate toggle in Options Menu
+        Added a custom cursor sprite
+        new command - "/fps <bool>" - toggle FPS text
+    Improvements
+        Reworked Options Menu
+        Bobble tray no longer shakes indefinitely when ceiling drop interval is set to 1
+        Quit while on Pause Menu and Result Screen now exit to Level Selection instead of Main Menu
+        The Arrow no longer follows cursor when game is paused
+        Various sprite and model improvements
+        Various animation improvements
+        General improvements
+    Changes
+        Aim guide distance is halved (32 => 16)
+        Next bobble now spawns anew before gearing if its colour does not exist in the level
+        Bobble Tray now drops when fewer than 2 => 3 rows of bobbles are visible on screen
+    Bug Fixes
+        Fixed a bug that caused commands with "set" keyword to stop functioning. All "set" keywords are now removed from command names and are ignored
+        Fixed a bug that caused falling bobbles to move with bobble tray
+        
+1.0.0.0 20250429
+    Additions
+        Added 48 levels
+    Changes
+        New bobble colours are now limited to colours currently on screen instead of in the entire level
+        Ceiling tiles no longer trigger Game Over
+        Ceiling tiles are now ignored when determining Bobble Tray visibility
+        Adjusted camera field of view
+        Bobble Tray now drops when fewer than 3 => 4 rows of bobbles are visible on screen
+            Added a small tolerance to avoid tiny drops
+            Updated visual to a smooth falling instead of multiple drops
+        Aim Guide fading now begins 3.2 => 4.0 units from the tip
+        Audio pitch randomness is now multiplied instead of added
+        Removed Death Zone Height customization in Level Painter
+    Performance
+        Fixed lag spikes caused by switching of background music
+    Bug Fixes
+        Fixed a bug that caused Aim Guide to render incorrectly if an attachable is placed behind a wall
+        Fixed a bug that caused The Arrow to fail to load state
+        
+1.0.0.1 20252430
+    Changes
+        [General]
+            Added HDR support
+            Adjusted UI to fit on mobile devices and wide screen
+            Added animation to multiple UI interactions
+            Boosted overall audio volume
+            General improvements
+        [Gameplay]
+            The Arrow's rotation speed is no longer affected by game speed
+            Score and Level Name texts no longer block aimed shots
+        [Level Selection]
+            Locked levels no longer play flipping animations
+        [Touchscreen]
+            Bobble swapping can now be performed by tapping The Arrow or next bobble
+            Bobble swapping can now be performed by tapping with a secondary finger
+            Swap Button is now toggled with all other on-screen buttons
+    Bug Fixes
+        Fixed a bug that caused on-screen buttons to not show until the screen is touched
+        Fixed a bug that caused Quit button to show on mobile platforms
+        Fixed a bug that caused UI animation to not reset when disabled
+        Fixed a issue that caused shadows to not render
+        Removed level t which was falsely added after level 60
+        
+1.0.0.2 20250501
+    Changes
+        [General]
+            Visual adjustments
+            Minor SFX adjustments
+        [Debug]
+            new command - "/ls <string>" - load scene by name
+    Bug Fixes
+        Fixed a bug that caused slider handles to be missing in Options Menu
+        Fixed a bug that caused on-screen buttons to be clickable while the game is paused
+        Fixed a bug that caused rotation input to function while the game is paused
+        Fixed a bug that caused bobble swapping to trigger a second time when swap input is released
+        Fixed audio lag on iOS devices
+        
+1.0.0.3 20250502
+    Additions
+        Added Arcade Mode - blast through 30 levels in one go
+        Added an indicator under high score when a new high score is set
+        Added score text on Result Screen
+    Changes
+        [Gameplay]
+            Bobble Tray now drops when fewer than 4 => 3.5 rows of bobbles are visible on screen
+            Adjusted layout of some levels
+        General improvement
+    Bug Fixes
+        Fixed an issue that caused bobble swapping performed by clicking The Arrow or next bobble to stop functioning when Show Aim Buttons is toggled off
+        Fixed broken Level Painter UI
+        
+1.0.0.4/1.0.0.5 20250505 RELEASE
+    Changes
+        Updated save file version - older save files are no longer compatible
+        Lowered aiming sensitivity with buttons
+        Adjusted layout of some levels
+        Changed Arcade Mode level display to indicate total levels
+    Bug Fixes
+        Fixed a bug that caused high score of current level to be not saved when proceeding to next level via Result Screen
+        Removed Restart Button in Arcade Mode
+        Fixed a bug that caused new record tag to not show up until first scoring, if current score is higher than previous high score
+        Fixed a bug that caused background music to cut prematurely if the application has been inactive during its playback
+        
+1.0.0.6 20250505
+    Bug Fixes
+        Fixed a bug that caused game progress to not save until entering next level
